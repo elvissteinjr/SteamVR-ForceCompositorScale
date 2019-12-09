@@ -1,0 +1,16 @@
+{
+	"source" : "builtin",
+	"applications": [{
+		"app_key": "elvissteinjr.ForceCompositorScale",
+		"launch_type": "binary",
+		"binary_path_windows": "SteamVR-ForceCompositorScale.exe",
+		"is_dashboard_overlay": true,
+
+		"strings": {
+			"en_us": {
+				"name": "Force Compositor Scale",
+				"description": "Force Compositor Scale"
+			}
+		}
+	}]
+}
