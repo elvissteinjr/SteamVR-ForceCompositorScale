@@ -47,8 +47,13 @@ int main()
         delete[] path;
     }
 
+    float rendertarget = vr::VRSettings()->GetFloat("steamvr", "supersampleScaleCompositor"); //Base on custom compositor override
+
+    if (rendertarget == 0.0f) //As supersampleScaleCompositor is not a default setting, it will default to 0 if not present
+    {
+        rendertarget = vr::VRSettings()->GetFloat("steamvr", "supersampleScale"); //Base on manual override
+    }
     //Value based on Valve Index numbers, but small deviations shouldn't matter too much
-    float rendertarget = vr::VRSettings()->GetFloat("steamvr", "supersampleScale");
     int gpuspeed = 6.834f * rendertarget * vr::VRSystem()->GetFloatTrackedDeviceProperty(vr::k_unTrackedDeviceIndex_Hmd, vr::Prop_DisplayFrequency_Float);
     //Override a bunch of GPU Speed settings
     char buffer[16];
